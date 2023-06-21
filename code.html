@@ -55,17 +55,63 @@
         <div class="row row-cols-1 row-cols-lg-2">
             <div class="col-lg-8">
                 <pre class="line-numbers"><code class="language-javascript">
-                    //Call Hello World
-                        function helloWorld(){
-                        alert("Hello World")
-                        }
+// Get the string from the page
+// Controller function
+
+function getValue() {
+                    
+    document.getElementById("alert").classList.add("invisible");
+                      
+    let userString = document.getElementById("userString").value;
+                        
+    let revString = reverseString(userString);
+                      
+    displayString(revString);
+}
+                      
+// Reverse the string
+// Logic function
+function reverseString(userString) {
+    let revString = '';
+                      
+// Remove spaces and special characters from the userString
+    userString = userString.replace(/[^a-zA-Z0-9]/g, '');
+                      
+// Reverse the string using a loop
+    for (let index = userString.length - 1; index >= 0; index--) {
+    revString += userString[index];
+    }
+                      
+ // Convert the reversed string to lowercase
+    revString = revString.toLowerCase();
+                      
+    return revString;
+    }
+                      
+                      
+// Display the reversed string to the user
+// View function
+function displayString(revString) {
+// Write to page
+    document.getElementById("msg").innerHTML = `Your phrase reversed is: ${revString}`;
+                      
+// Show the alert box
+    document.getElementById("alert").classList.remove("invisible");
+}
+                
                 </code>
                 </pre> 
             </div>
             <div class="col-lg-4">
-                <p1>The Code is structed in one function.</p1>
-                <h5>Hello World</h5>
-                <p>Hello world is a function that displays the message "Hello World".</p>
+                <p1>Here's a breakdown of the code:</p1>
+                <h5>getValue()</h5>
+                <p>It retrieves the user input string, calls the reverseString() function, and passes the user input as an argument. It then calls the displayString() function, passing the reversed string as an argument.</p>
+                <h5>reverseString(userString)</h5>
+                <p>It initializes an empty string revString to store the reversed string. It removes spaces and special characters from the userString using a regular expression (/[^a-zA-Z0-9]/g). It then iterates through the characters of the userString in reverse order and appends each character to the revString. Finally, it converts the reversed string to lowercase and returns it.</p>
+                <h5>displayString(revString)</h5>
+                <p>It retrieves the HTML element with the ID "msg" and sets its innerHTML to include the reversed string. It also shows the alert box by removing the "invisible" class from the HTML element with the ID "alert".</p>
+                <h5>Overall, the code provides a basic functionality to reverse a user input string, convert it to lowercase, remove spaces and special characters, and display the result on the webpage.</h5>
+                
             </div>
         </div>
     </div>
